@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Screenshot Analyzer Privacy Policy</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1d1d1f;
+  --muted: #5f6368;
+  --rule: #e3e3e6;
+  --link: #0a5bd3;
+  --code: #f2f2f5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161618;
+    --fg: #f2f2f4;
+    --muted: #a1a1a8;
+    --rule: #2e2e33;
+    --link: #79b0ff;
+    --code: #26262b;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+main { max-width: 40rem; margin: 0 auto; padding: 2.5rem 1rem 3rem; }
+h1 { font-size: 1.6rem; line-height: 1.25; margin: 0 0 0.25rem; }
+h2 { font-size: 1.1rem; margin: 1.75rem 0 0.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+p, ul { margin: 0.5rem 0; }
+ul { padding-left: 1.25rem; }
+li { margin: 0.35rem 0; }
+.meta { color: var(--muted); margin: 0; }
+code {
+  font: 0.9em ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--code);
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+  overflow-wrap: anywhere;
+}
+a { color: var(--link); overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<main>
+<h1>Screenshot Analyzer Privacy Policy</h1>
+<p class="meta">Effective 2026-10-23 · Developer: Brantley Beaird</p>
+
+<h2>What stays on this Mac</h2>
+<p>The app reads screenshots from Photos and never changes them. Text recognition and sorting run on this Mac. Your library and settings are saved on this Mac, an OpenAI key you add is stored in your Keychain, and optional encrypted backups go to a folder you choose.</p>
+
+<h2>Usage analytics</h2>
+<p>On by default. On a new install, nothing is sent until the setup screen has been shown. The app then sends these events to Segment, which passes them to Google Analytics:</p>
+<ul>
+<li><code>app_opened</code>, when the app opens</li>
+<li><code>screen_view</code>, with <code>screen_name</code>: <code>insights</code>, <code>find</code>, <code>job_search</code>, <code>settings</code> or <code>cleanup</code></li>
+<li><code>report_exported</code> or <code>report_export_failed</code>, after Export → Report</li>
+</ul>
+<p>Each event also has <code>app</code> (screenshot-analyzer), <code>platform</code> (macos), <code>app_version</code>, <code>environment</code> (production), <code>session_id</code> (when the app opened), <code>engagement_time_msec</code> (always 1), a timestamp, a random message ID, and a random identifier that is new each launch and never saved. No screenshots, recognized text, file names or library data are sent.</p>
+<p>Segment receives each request, so it sees your IP address. The app sets the event's IP field to 0.0.0.0.</p>
+<p>To turn it off, use the switch on the setup screen or Settings → General → Share anonymous usage stats. This stops future sends; it does not delete events already sent. See the <a href="https://www.twilio.com/en-us/legal/privacy">Segment (Twilio) privacy notice</a> and <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
+
+<h2>Other connections</h2>
+<ul>
+<li><strong>Updates:</strong> when you choose Check for Updates, or turn on automatic checks in Settings → Updates (off by default), the app fetches the update feed from GitHub and downloads updates you install. GitHub sees your IP address and standard request headers; no system profile is sent.</li>
+<li><strong>iCloud Photos:</strong> with Download originals from iCloud on (the default, under Scope), Photos downloads from iCloud any screenshot the app needs that is not on this Mac.</li>
+<li><strong>Cloud analysis (OpenAI):</strong> off by default (Settings → Advanced). Only screenshots you confirm are sent to OpenAI, using your own API key: each as a JPEG up to 1,600 pixels with up to 12,000 characters of its recognized text, and <code>store: false</code>.</li>
+<li><strong>Links:</strong> search, calendar and web links open in your browser only when you click them. Search and calendar links include text from that screenshot.</li>
+</ul>
+
+<h2>Contact</h2>
+<p>Open an issue at <a href="https://github.com/bbeaird/screenshot-analyzer-releases/issues">https://github.com/bbeaird/screenshot-analyzer-releases/issues</a>.</p>
+</main>
+</body>
+</html>
