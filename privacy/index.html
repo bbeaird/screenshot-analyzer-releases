@@ -55,26 +55,27 @@ a { color: var(--link); overflow-wrap: anywhere; }
 <h1>Screenshot Analyzer Privacy Policy</h1>
 <p class="meta">Effective 2026-10-23 · Developer: Brantley Beaird</p>
 
-<h2>What stays on this Mac</h2>
-<p>The app reads screenshots from Photos and never changes them. Text recognition and sorting run on this Mac. Your library and settings are saved on this Mac, an OpenAI key you add is stored in your Keychain, and optional encrypted backups go to a folder you choose.</p>
+<h2>What stays on your device</h2>
+<p>The Mac and iPhone apps read screenshots from Photos and never change them. Text recognition, sorting, your library and settings stay on your device. On a Mac, an OpenAI key you add stays in your Keychain, and optional encrypted backups go to a folder you choose.</p>
 
 <h2>Usage analytics</h2>
-<p>On by default. On a new install, nothing is sent until the setup screen has been shown. The app then sends these events to Segment, which passes them to Google Analytics:</p>
+<p>On by default. A new install sends nothing until the setup screen has been shown. It then sends these events to Segment, which passes them to Google Analytics:</p>
 <ul>
 <li><code>app_opened</code>, when the app opens</li>
-<li><code>screen_view</code>, with <code>screen_name</code>: <code>insights</code>, <code>find</code>, <code>job_search</code>, <code>settings</code> or <code>cleanup</code></li>
-<li><code>report_exported</code> or <code>report_export_failed</code>, after Export → Report</li>
+<li><code>screen_view</code>, with <code>screen_name</code>: on a Mac <code>insights</code>, <code>find</code>, <code>job_search</code>, <code>settings</code> or <code>cleanup</code>; on iPhone <code>today</code>, <code>library</code>, <code>jobs</code>, <code>insights</code> or <code>settings</code></li>
+<li><code>report_exported</code> or <code>report_export_failed</code>, after Export → Report on a Mac</li>
+<li><code>index_requested</code>, when indexing starts on iPhone</li>
 </ul>
-<p>Each event also has <code>app</code> (screenshot-analyzer), <code>platform</code> (macos), <code>app_version</code>, <code>environment</code> (production), <code>session_id</code> (when the app opened), <code>engagement_time_msec</code> (always 1), a timestamp, a random message ID, and a random identifier that is new each launch and never saved. No screenshots, recognized text, file names or library data are sent.</p>
-<p>Segment receives each request, so it sees your IP address. The app sets the event's IP field to 0.0.0.0.</p>
-<p>To turn it off, use the switch on the setup screen or Settings → General → Share anonymous usage stats. This stops future sends; it does not delete events already sent. See the <a href="https://www.twilio.com/en-us/legal/privacy">Segment (Twilio) privacy notice</a> and <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
+<p>Each event also has <code>app</code> (screenshot-analyzer), <code>platform</code> (macos or ios), <code>app_version</code>, <code>environment</code> (production), <code>session_id</code> (when the app opened), <code>engagement_time_msec</code> (always 1), a timestamp, a random message ID, and a random identifier that is new each launch and never saved. No screenshots, recognized text, file names or library data are sent.</p>
+<p>Segment sees your IP address; the app sets the event's IP field to 0.0.0.0.</p>
+<p>Turn it off with the switch on the setup screen or Share anonymous usage stats in Settings (General on a Mac, Privacy on iPhone). This stops future sends; events already sent are not deleted. See the <a href="https://www.twilio.com/en-us/legal/privacy">Segment (Twilio) privacy notice</a> and <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
 
 <h2>Other connections</h2>
 <ul>
-<li><strong>Updates:</strong> when you choose Check for Updates, or turn on automatic checks in Settings → Updates (off by default), the app fetches the update feed from GitHub and downloads updates you install. GitHub sees your IP address and standard request headers; no system profile is sent.</li>
-<li><strong>iCloud Photos:</strong> with Download originals from iCloud on (the default, under Scope), Photos downloads from iCloud any screenshot the app needs that is not on this Mac.</li>
-<li><strong>Cloud analysis (OpenAI):</strong> off by default (Settings → Advanced). Only screenshots you confirm are sent to OpenAI, using your own API key: each as a JPEG up to 1,600 pixels with up to 12,000 characters of its recognized text, and <code>store: false</code>.</li>
-<li><strong>Links:</strong> search, calendar and web links open in your browser only when you click them. Search and calendar links include text from that screenshot.</li>
+<li><strong>Updates (Mac):</strong> Check for Updates, or automatic checks (off by default, Settings → Updates), fetch the update feed and any update you install from GitHub, which sees your IP address and request headers. No system profile is sent.</li>
+<li><strong>iCloud Photos:</strong> with Download originals from iCloud on (the default), Photos downloads any screenshot the app needs that is not on your device. On iPhone, previews can download even when it is off.</li>
+<li><strong>Cloud analysis (OpenAI, Mac):</strong> off by default (Settings → Advanced). Only screenshots you confirm go to OpenAI, with your own API key: each a JPEG up to 1,600 pixels plus up to 12,000 characters of its recognized text, with <code>store: false</code>.</li>
+<li><strong>Links:</strong> these open in your browser only when you choose them; search and calendar links include that screenshot's text.</li>
 </ul>
 
 <h2>Contact</h2>
